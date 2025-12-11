@@ -10,26 +10,7 @@ This project creates an end-to-end AWS infrastructure that:
 3. **Stores** the results in separate S3 buckets for easy retrieval
 
 ## Architecture
-
-```
-┌─────────────┐      ┌──────────────┐      ┌─────────────┐
-│   Upload    │      │  Transcriber │      │   Summary   │
-│ Audio (.mp3)│─────▶│    Lambda    │─────▶│   Lambda    │
-│  to S3      │      │              │      │             │
-└─────────────┘      └──────────────┘      └─────────────┘
-                            │                      │
-                            ▼                      ▼
-                     ┌─────────────┐        ┌─────────────┐
-                     │AWS Transcribe│        │   Bedrock   │
-                     │   Service   │        │  (Claude)   │
-                     └─────────────┘        └─────────────┘
-                            │                      │
-                            ▼                      ▼
-                     ┌─────────────┐        ┌─────────────┐
-                     │Transcription│        │   Summary   │
-                     │  JSON File  │        │  JSON File  │
-                     └─────────────┘        └─────────────┘
-```
+![Architecture Diagram](AudioSummarizer.png)
 
 ## Features
 
